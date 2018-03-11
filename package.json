@@ -14,14 +14,17 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
+    "better-scroll": "^1.8.4",
     "mint-ui": "^2.2.13",
-    "nuxt": "^1.0.0"
+    "nuxt": "^1.0.0",
+    "qs": "^6.5.1"
   },
   "devDependencies": {
     "babel-eslint": "^8.2.1",
     "eslint": "^4.15.0",
     "eslint-friendly-formatter": "^3.0.0",
     "eslint-loader": "^1.7.1",
-    "eslint-plugin-vue": "^4.0.0"
+    "eslint-plugin-vue": "^4.0.0",
+    "moment": "^2.21.0"
   }
 }

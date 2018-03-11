@@ -24,7 +24,7 @@ module.exports = {
     /*
     ** Run ESLint on save
     */
-    vendor: ['axios'],
+    vendor: ['axios','moment'],
     extend (config, { isDev, isClient }) {
       if (isDev && isClient) {
         config.module.rules.push({
@@ -39,7 +39,7 @@ module.exports = {
   css: [
     'assets/reset.css'
   ],
-  plugins: ['~/plugins/mint'],
+  plugins: ['~/plugins/mint','~/plugins/axios'],
   router:{
     linkActiveClass: 'active-link',
     routes:[

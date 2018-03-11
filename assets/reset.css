@@ -13,6 +13,12 @@
 
 .app-content{
     padding-top: 44px;
+    height: 100%;
+}
+
+.full-content{
+  width: 100%;
+  height: 100%;
 }
 
 .scroll {
@@ -21,6 +27,12 @@
   overflow-x: hidden;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
+}
+
+.bubble-box {
+  position: absolute;
+  left: 50%;
+  margin-left: -25px;
 }
 
 .popup {
@@ -77,4 +89,13 @@
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
+}
+
+.better-scroll{
+    width: 100%;
+    height: 100%;
+}
+.scroll-wrapper{
+  width: 100%;
+  min-height: 100.5%;
 }

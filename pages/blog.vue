@@ -1,12 +1,12 @@
 <template>
-    <div>
+    <div class="full-content">
         <Myheader @open="open" :title="title"/>
         <mt-popup
             v-model="popupVisible"
             position="right"
             :modal="modal"
              class="popup">
-            <div class="popup-link" @click="link('article')">文章</div>
+            <div class="popup-link" @click="link('article')">日志</div>
             <div class="popup-link" @click="link('album')">相册</div>
             <div class="popup-close" @click="close()">关闭</div>
         </mt-popup>

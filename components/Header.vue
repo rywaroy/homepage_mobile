@@ -35,6 +35,7 @@ export default {
     align-items: center;
     padding-left: 10px;
     padding-right: 10px;
+    border-bottom: 1px solid #ccc;
 }
 .header-back{
     width: 28px;
