@@ -1,7 +1,7 @@
 <template>
   <div class="header">
       <div class="header-back">
-          <div class="header-back-icon"></div>
+          <div class="header-back-icon" v-if="back" @click="goBack()"></div>
       </div>
       <div class="header-title text-ovh">{{title}}</div>
       <div class="header-menu" @click="openMenu()"></div>
@@ -13,11 +13,18 @@ export default {
         title:{
             type:String,
             default:''
+        },
+        back:{
+            type:Boolean,
+            default:false
         }
     },
   methods:{
       openMenu(){
           this.$emit('open')
+      },
+      goBack(){
+          console.log(this.$router.go(-1))
       }
   }
 }

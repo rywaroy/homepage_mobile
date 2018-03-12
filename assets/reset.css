@@ -99,3 +99,14 @@
   width: 100%;
   min-height: 100.5%;
 }
+
+.comment-box{
+  padding: 0 15px;
+}
+.comment-box-title{
+  font-size: 18px;
+  line-height: 40px;
+  color: #333;
+  border-bottom: 1px solid #666;
+  margin-bottom: 20px;
+}

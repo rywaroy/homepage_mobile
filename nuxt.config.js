@@ -39,46 +39,55 @@ module.exports = {
   css: [
     'assets/reset.css'
   ],
-  plugins: ['~/plugins/mint','~/plugins/axios'],
-  router:{
-    linkActiveClass: 'active-link',
-    routes:[
-      {
-        name:'magazine',
-        path:'/magazine',
-        component:'pages/magazine/index.vue'
-      },
-      {
-        name:'movie',
-        path:'/movie',
-        component:'pages/movie/index.vue'
-      },
-      {
-        name:'tool',
-        path:'/tool',
-        component:'pages/tool/index.vue'
-      },
-      {
-        path:'/blog',
-        component:'pages/blog.vue',
-        children:[
-          {
-            path:'',
-            name:'blog',
-            component:'pages/blog/index.vue'
-          },
-          {
-            path:'/article',
-            name:'article',
-            component:'pages/blog/article.vue'
-          },
-          {
-            path:'/album',
-            name:'album',
-            component:'pages/blog/album.vue'
-          },
-        ]
-      }
-    ]
-  }
+  plugins: [
+    '~/plugins/mint',
+    '~/plugins/axios',
+    '~/plugins/filter'
+  ],
+  // router:{
+  //   linkActiveClass: 'active-link',
+  //   routes:[
+  //     {
+  //       name:'magazine',
+  //       path:'/magazine',
+  //       component:'pages/magazine/index.vue'
+  //     },
+  //     {
+  //       name:'movie',
+  //       path:'/movie',
+  //       component:'pages/movie/index.vue'
+  //     },
+  //     {
+  //       name:'tool',
+  //       path:'/tool',
+  //       component:'pages/tool/index.vue'
+  //     },
+  //     {
+  //       path:'/blog',
+  //       component:'pages/blog.vue',
+  //       children:[
+  //         {
+  //           path:'',
+  //           name:'blog',
+  //           component:'pages/blog/index.vue'
+  //         },
+  //         {
+  //           path:'/article',
+  //           name:'article',
+  //           component:'pages/blog/article.vue'
+  //         },
+  //         {
+  //           path:'/article/info/:id?',
+  //           name:'article-info',
+  //           component:'pages/blog/article/info/_id.vue'
+  //         },
+  //         {
+  //           path:'/album',
+  //           name:'album',
+  //           component:'pages/blog/album.vue'
+  //         },
+  //       ]
+  //     }
+  //   ]
+  // }
 }

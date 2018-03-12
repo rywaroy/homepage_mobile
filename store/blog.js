@@ -1,6 +1,7 @@
 import axiosPlugin from '../plugins/axios'
 export const state = () => ({
   title: '标题',
+  back:false,
   articleList: [],
   articlePage: 1,
   articleTotal: 0,
@@ -10,6 +11,9 @@ export const state = () => ({
 export const mutations = {
   setTitle(state, data) { //设置标题
     state.title = data
+  },
+  setBack(state,boolean){ //是否可以后退
+    state.back = boolean
   },
   setArticleList(state, data) { //设置文章列表
     if(state.articlePage == 1){

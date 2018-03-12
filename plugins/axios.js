@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import axios from 'axios'
 import { Toast } from 'mint-ui';
+import qs from 'qs'
 
 const Axios = axios.create({
     baseURL: "http://localhost:3001/api/",

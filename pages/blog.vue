@@ -1,6 +1,6 @@
 <template>
     <div class="full-content">
-        <Myheader @open="open" :title="title"/>
+        <Myheader @open="open" :title="title" :back="back"/>
         <mt-popup
             v-model="popupVisible"
             position="right"
@@ -25,6 +25,9 @@ export default {
     computed:{
         title(){
             return this.$store.state.blog.title
+        },
+        back(){
+            return this.$store.state.blog.back
         }
     },
     methods:{

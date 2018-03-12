@@ -14,7 +14,7 @@
         :pullup="pullup" 
         @scrollToEnd="loadBottom">
         <div class="scroll-wrapper">
-          <div v-for="(item,index) in articleList" :key="index" class="article-item">
+          <nuxt-link tag="div" :to="{path:`/blog/article/info/${item.id}`}" v-for="(item,index) in articleList" :key="index" class="article-item">
             <div class="article-item-left">
               <div class="article-item-title">{{item.title}}</div>
               <div class="article-item-time">{{item.time | time}}</div>
@@ -24,7 +24,7 @@
               <div class="article-item-tag" :style="{backgroundColor:item.color}">{{item.tag_name}}</div>
               <div class="article-item-tag" style="background-color:#FFD700" v-if="item.top > 0">置顶</div>
             </div>
-          </div>
+          </nuxt-link>
         </div>
       </Scroll>
     </div>
@@ -78,11 +78,9 @@
 </style>
 
 <script>
-import axiosPlugin from '../../plugins/axios'
-import Scroll from '../../components/Scroll'
-import Bubble from '../../components/Bubble'
-import moment from 'moment'
-
+import axiosPlugin from '../../../plugins/axios'
+import Scroll from '../../../components/Scroll'
+import Bubble from '../../../components/Bubble'
 export default {
   async fetch({store}){
     let blog = store.state.blog
@@ -97,6 +95,7 @@ export default {
       store.commit('blog/setArticleTotal',data.data.data.total)
     } 
     store.commit('blog/setTitle','日志') 
+    store.commit('blog/setBack',false)
   },
   data(){
     return{
@@ -155,11 +154,6 @@ export default {
     loadBottom(){  //上拉加载
       this.$store.commit('blog/setArticlePage')
       this.getArticleList()
-    }
-  },
-  filters:{
-    time(val){
-      return moment(val).format('YYYY-MM-DD HH:mm')
     }
   },
   components:{
