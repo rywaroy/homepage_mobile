@@ -5,7 +5,7 @@ import qs from 'qs'
 
 const Axios = axios.create({
     baseURL: "http://localhost:3001/api/",
-    // baseURL:'http://97.64.44.53/api/',
+    // baseURL:'http://www.3zsd.cn/api/',
     timeout: 10000,
     responseType: "json",
   //   withCredentials: true, // 是否允许带cookie这些

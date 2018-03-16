@@ -12,6 +12,12 @@
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
     "precommit": "npm run lint"
   },
+  "configa": {
+    "nuxt": {
+      "host": "97.64.44.53",
+      "port": "8081"
+    }
+  },
   "dependencies": {
     "axios": "^0.18.0",
     "better-scroll": "^1.8.4",
