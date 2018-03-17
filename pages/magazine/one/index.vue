@@ -1,0 +1,102 @@
+<template>
+  <div class="app-content">
+    <div class="scroll">
+      <div class="one-item" v-for="(item,index) in oneList" :key="index">
+        <div v-if="item.category !== '0'" style="padding:0 15px;">
+          <div class="one-tag">- {{item.category | filterTag}} -</div>
+          <div class="one-title">{{item.title}}</div>
+          <div class="one-author">文/{{item.author.user_name}}</div>
+          <img :src="item.img_url" alt="" width="100%" className="one-img"/>
+          <div class="one-forward">{{item.forward}}</div>
+        </div>
+        <div v-else>
+          <img :src="item.img_url" alt="" width="100%" className="one-img"/>
+          <div class="one-author tac">{{item.title}} | {{item.pic_info}}</div>
+          <div class="one-forward" style="padding:0 15px;">{{item.forward}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+<style>
+.one-item{
+  background: #fff;
+  margin-bottom: 5px;
+  padding-top: 5px;
+  padding-bottom: 20px;
+}
+.one-tag{
+  text-align: center;
+  color: #999;
+  font-size: 14px;
+  line-height: 20px
+}
+.one-title{
+  font-size: 16px;
+  line-height: 24px;
+  color: #333;
+  margin-top: 10px;
+}
+.one-author{
+  font-size: 12px;
+  color: #999;
+  line-height: 18px;
+  margin-top: 15px;
+  margin-bottom: 6px;
+}
+.one-author.tac{
+  text-align: center;
+}
+.one-img{
+  display: block;
+}
+.one-forward{
+  font-size: 13px;
+  line-height: 22px;
+  color: #666;
+  margin-top: 8px;
+}
+</style>
+
+<script>
+import axios from 'axios'
+export default {
+  async fetch({store}){
+    if(store.state.magazine.oneList.length === 0){
+      let data = await axios.get('http://v3.wufazhuce.com:8000/api/onelist/idlist/?channel=wdj&version=4.0.2&uuid=ffffffff-a90e-706a-63f7-ccf973aae5ee&platform=android')
+      let list = await axios.get(`http://v3.wufazhuce.com:8000/api/onelist/${data.data.data[0]}/0?cchannel=wdj&version=4.0.2&uuid=ffffffff-a90e-706a-63f7-ccf973aae5ee&platform=android`)
+      store.commit('magazine/setOneList',list.data.data.content_list)
+    }
+    store.commit('magazine/setTitle','ONE · 一个') 
+    store.commit('magazine/setBack',false)
+  },
+  computed:{
+    oneList(){
+      return this.$store.state.magazine.oneList
+    }
+  },
+  filters:{
+    filterTag(val){
+      switch(val){
+        case '1':
+				return '阅读'
+				break
+			case '2':
+				return '连载'
+				break
+			case '3':
+				return '问答'
+				break
+			case '4':
+				return '音乐'
+				break
+			case '5':
+				return '影视'
+				break
+			default:
+				return null
+      }
+    }
+  }
+}
+</script>
