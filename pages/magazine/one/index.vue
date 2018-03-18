@@ -70,7 +70,6 @@ export default {
     store.commit('magazine/setTitle','ONE · 一个') 
     store.commit('magazine/setBack',false)
   },
-  scrollToTop:false,
   computed:{
     oneList(){
       return this.$store.state.magazine.oneList
