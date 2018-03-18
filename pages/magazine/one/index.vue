@@ -1,7 +1,7 @@
 <template>
   <div class="app-content">
     <div class="scroll">
-      <div class="one-item" v-for="(item,index) in oneList" :key="index">
+      <div class="one-item" v-for="(item,index) in oneList" :key="index" @click="link(item.category, item.item_id)">
         <div v-if="item.category !== '0'" style="padding:0 15px;">
           <div class="one-tag">- {{item.category | filterTag}} -</div>
           <div class="one-title">{{item.title}}</div>
@@ -70,9 +70,17 @@ export default {
     store.commit('magazine/setTitle','ONE · 一个') 
     store.commit('magazine/setBack',false)
   },
+  scrollToTop:false,
   computed:{
     oneList(){
       return this.$store.state.magazine.oneList
+    }
+  },
+  methods:{
+    link(type, id){
+      if (type !== '0') {
+			  this.$router.push({path:`/magazine/one/detail/${type}/${id}`})
+		  }
     }
   },
   filters:{
