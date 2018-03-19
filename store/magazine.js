@@ -1,4 +1,4 @@
-import axiosPlugin from '../plugins/axios'
+
 export const state = () => ({
   title: '标题',
   back:false,
