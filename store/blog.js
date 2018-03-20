@@ -1,6 +1,6 @@
 import axiosPlugin from '../plugins/axios'
 export const state = () => ({
-  title: '标题',
+  title: '',
   back:false,
   articleList: [],
   articlePage: 1,

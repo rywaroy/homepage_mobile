@@ -145,3 +145,9 @@ html,body{
 .single-content img{
   max-width: 100%;
 }
+.single-subtitle{
+  font-size: 14px;
+  line-height: 30px;
+  color: #999;
+  margin-top: 10px;
+}

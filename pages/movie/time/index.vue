@@ -10,7 +10,7 @@
     <mt-tab-container v-model="selected">
     <mt-tab-container-item id="sell">
         <div class="scroll">
-            <div class="movie-item" v-for="(item,index) in sellList" :key="index">
+            <nuxt-link tag="div" :to="{path:`/movie/time/info/${item.movieId}`}" class="movie-item" v-for="(item,index) in sellList" :key="index">
                 <img v-lazy="item.img" width="100%">
                 <div class="movie-item-title">{{item.titleCn}}</div>
                 <div class="movie-item-intro">{{item.commonSpecial}}</div>
@@ -18,12 +18,12 @@
                 <p class="movie-item-p">导演：{{item.directorName}}</p>
                 <p class="movie-item-p">上映时间：{{item.rYear}}-{{item.rMonth}}-{{item.rDay}}</p>
                 <p class="movie-item-p">类型：{{item.type}}</p>
-            </div>
+            </nuxt-link>
         </div>
     </mt-tab-container-item>
     <mt-tab-container-item id="hot">
         <div class="scroll">
-            <div class="movie-item" v-for="(item,index) in hotList" :key="index">
+            <nuxt-link tag="div" :to="{path:`/movie/time/info/${item.id}`}" class="movie-item" v-for="(item,index) in hotList" :key="index">
                 <img v-lazy="item.img" width="100%">
                 <div class="movie-item-title">{{item.tCn}}</div>
                 <div class="movie-item-intro">{{item.commonSpecial}}</div>
@@ -31,12 +31,12 @@
                 <p class="movie-item-p">导演：{{item.dN}}</p>
                 <p class="movie-item-p">上映时间：{{item.rd}}</p>
                 <p class="movie-item-p">类型：{{item.movieType}}</p>
-            </div>
+            </nuxt-link>
         </div>
     </mt-tab-container-item>
     <mt-tab-container-item id="soon">
         <div class="scroll">
-            <div class="movie-item" v-for="(item,index) in soonList" :key="index">
+            <nuxt-link tag="div" :to="{path:`/movie/time/info/${item.id}`}" class="movie-item" v-for="(item,index) in soonList" :key="index">
                 <img v-lazy="item.image" width="100%">
                 <div class="movie-item-title">{{item.title}}</div>
                 <div class="movie-item-intro">{{item.releaseDate}}</div>
@@ -44,7 +44,7 @@
                 <p class="movie-item-p">导演：{{item.director}}</p>
                 <p class="movie-item-p">上映时间：{{item.rYear}}-{{item.rMonth}}-{{item.rDay}}</p>
                 <p class="movie-item-p">类型：{{item.type}}</p>
-            </div>
+            </nuxt-link>
         </div>
     </mt-tab-container-item>
     </mt-tab-container>
@@ -64,19 +64,19 @@
 }
 .movie-item-title{
     margin-top: 5px;
-    font-size: 18px;
+    font-size: 16px;
     line-height: 24px;
     color: #333;
     margin-bottom: 8px;
 }
 .movie-item-intro{
-    font-size: 16px;
+    font-size: 14px;
     line-height: 24px;
     margin-bottom: 8px;
     color: #444;
 }
 .movie-item-p{
-    font-size: 16px;
+    font-size: 14px;
     line-height: 24px;
     color: #999;
 }

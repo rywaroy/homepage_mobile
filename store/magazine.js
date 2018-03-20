@@ -1,6 +1,6 @@
 
 export const state = () => ({
-  title: '标题',
+  title: '',
   back:false,
   oneList:[]
 })
