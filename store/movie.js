@@ -34,7 +34,12 @@ export const mutations = {
     }
   },
   setDoubanPage(state, page) {
-    state.doubanPage = page
+    if(page){
+      state.doubanPage = page
+    }else{
+      state.doubanPage++
+    }
+    
   },
   setDoubanTotal(state, data) {
     state.doubanTotal = data

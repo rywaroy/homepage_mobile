@@ -5,7 +5,7 @@
         <Bubble :y="bubbleY"></Bubble>
       </div> 
       <Scroll class="better-scroll" 
-        :data="articleList"
+        :data="doubanList"
         :listenScroll="listenScroll"
         @scroll="scroll"
         :pulldown="pulldown" 
@@ -112,11 +112,11 @@ export default {
                 params:{
                     city:'杭州',
                     page:movie.doubanPage,
-                    limit:movie.doubanTotal
+                    limit:movie.doubanLimit
                 }
             }).then(res => {
-                this.$store.commit('movie/setArticleList',res.data.data.subjects)
-                this.$store.commit('movie/setArticleTotal',res.data.data.total)
+                this.$store.commit('movie/setDoubanList',res.data.data.subjects)
+                this.$store.commit('movie/setDoubanTotal',res.data.data.total)
                 this.$loading.close()
             }).catch(err => {
                 this.$loading.close()

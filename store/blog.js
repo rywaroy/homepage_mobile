@@ -5,7 +5,8 @@ export const state = () => ({
   articleList: [],
   articlePage: 1,
   articleTotal: 0,
-  articleLimit: 10
+  articleLimit: 10,
+  albumList:[]
 })
 
 export const mutations = {
@@ -31,6 +32,9 @@ export const mutations = {
     } else {
       state.articlePage++
     }
+  },
+  setAlbumList(state, data){
+    state.albumList = data
   }
 }
 

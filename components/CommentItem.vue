@@ -12,7 +12,7 @@
 </template>
 <style>
 .comment{
-    padding: 15px 15px;
+    padding: 15px 0px;
     margin-bottom: 5px;
     border-bottom: 1px solid #ccc;
 }
@@ -28,6 +28,7 @@
     margin-right: 5px;
     width: 30px;
     height: 30px;
+    border-radius: 50%;
 }
 .comment-name{
     font-size: 14px;
