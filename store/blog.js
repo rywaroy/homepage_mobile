@@ -17,7 +17,7 @@ export const mutations = {
     state.back = boolean
   },
   setArticleList(state, data) { //设置文章列表
-    if(state.articlePage == 1){
+    if(state.articlePage === 1){
       state.articleList = data
     }else{
       state.articleList = state.articleList.concat(data)

@@ -15,15 +15,17 @@
         @scrollToEnd="loadBottom">
         <div class="scroll-wrapper">
           <nuxt-link tag="div" :to="{path:`/blog/article/info/${item.id}`}" v-for="(item,index) in articleList" :key="index" class="article-item">
-            <div class="article-item-left">
-              <div class="article-item-title">{{item.title}}</div>
-              <div class="article-item-time">{{item.time | time}}</div>
-              <div class="article-item-intro">{{item.intro}}</div>
+            <div class="article-item-top">
+              <div class="article-item-left">
+                <div class="article-item-title">{{item.title}}</div>
+                <div class="article-item-time">{{item.time | time}}</div>
+              </div>
+              <div class="article-item-right">
+                <div class="article-item-tag" :style="{backgroundColor:item.color}">{{item.tag_name}}</div>
+                <div class="article-item-tag" style="background-color:#FFD700" v-if="item.top > 0">置顶</div>
+              </div>
             </div>
-            <div class="article-item-right">
-              <div class="article-item-tag" :style="{backgroundColor:item.color}">{{item.tag_name}}</div>
-              <div class="article-item-tag" style="background-color:#FFD700" v-if="item.top > 0">置顶</div>
-            </div>
+            <div class="article-item-intro">{{item.intro}}</div>
           </nuxt-link>
         </div>
       </Scroll>
@@ -37,6 +39,10 @@
   padding: 15px;
   display: flex;
   margin-top: 5px;
+  flex-direction: column
+}
+.article-item-top{
+  display: flex;
 }
 .article-item-left{
   display: flex;

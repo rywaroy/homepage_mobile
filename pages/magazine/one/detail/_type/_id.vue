@@ -2,8 +2,17 @@
   <div class="app-content">
       <div class="scroll single-box">
           <div class="single-title">{{title}}</div>
-          <div class="single-author">{{author}}</div>
-          <div class="single-content" v-html="content"></div>
+          <div v-if="$route.params.type === '3'">
+             <div class="single-author">{{asker}}</div>
+             <div class="single-content" v-html="askContent"></div>
+             <div class="single-author">{{answerer}}</div>
+            <div class="single-content" v-html="content"></div>
+          </div>
+          <div v-else>
+             <div class="single-author">{{author}}</div>
+             <div class="single-content" v-html="content"></div>
+          </div>
+          
       </div>
   </div>
 </template>
@@ -67,7 +76,6 @@ export default {
 					content: data.content
                 }
             break
-
       }
   },
 }

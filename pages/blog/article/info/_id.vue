@@ -74,7 +74,7 @@
 }
 .article-textarea{
   width: 100%;
-  height: 200%;
+  height: 150px;
   border: 1px solid #ccc;
   border-radius: 6px;
   padding: 10px;

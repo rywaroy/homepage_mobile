@@ -34,7 +34,7 @@ export default {
 .header{
     height: 44px;
     background: #fff;
-    position: absolute;
+    position: fixed;
     z-index: 2;
     width: 100%;
     display: flex;
