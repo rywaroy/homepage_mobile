@@ -25,7 +25,7 @@
 </template>
 <style>
 .app{
-    height: 100vh;
+    height: 100%;
     padding-bottom: 55px;
     width: 100vw;
     background: #f5f5f5;
@@ -33,7 +33,7 @@
 .nav{
     height: 55px;
     display: flex;
-    position: absolute;
+    position: fixed;
     z-index: 2;
     left: 0;
     bottom: 0;

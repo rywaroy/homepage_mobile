@@ -26,6 +26,9 @@
               </div>
             </div>
             <div class="article-item-intro">{{item.intro}}</div>
+            <div class="article-item-bot">
+              <div class="article-item-watch">{{item.watch}}</div>
+            </div>
           </nuxt-link>
         </div>
       </Scroll>
@@ -80,6 +83,18 @@
   color: #666;
   line-height: 18px;
   margin-top: 8px;
+}
+.article-item-bot{
+  display: flex;
+  justify-content: flex-end;
+}
+.article-item-watch{
+  font-size: 12px;
+  color: #666;
+  padding-left: 20px;
+  line-height: 20px;
+  margin-top: 4px;
+  background: url('../../../assets/img/watch.png') no-repeat left center;
 }
 </style>
 
