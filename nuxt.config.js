@@ -7,11 +7,11 @@ module.exports = {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '个人主页' }
+      { hid: 'description', name: 'description', content: '个人主页' },
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
-    ]
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+    ],
   },
   /*
   ** Customize the progress bar color
@@ -24,27 +24,27 @@ module.exports = {
     /*
     ** Run ESLint on save
     */
-    vendor: ['axios','moment'],
-    extend (config, { isDev, isClient }) {
+    vendor: ['axios', 'moment'],
+    extend(config, { isDev, isClient }) {
       if (isDev && isClient) {
         config.module.rules.push({
           enforce: 'pre',
           test: /\.(js|vue)$/,
           loader: 'eslint-loader',
-          exclude: /(node_modules)/
-        })
+          exclude: /(node_modules)/,
+        });
       }
-    }
+    },
   },
   css: [
-    'assets/reset.css'
+    'assets/reset.css',
   ],
   plugins: [
     '~/plugins/mint',
     '~/plugins/axios',
-    '~/plugins/filter'
+    '~/plugins/filter',
   ],
-  router:{
+  router: {
     linkActiveClass: 'active-link',
-  }
-}
+  },
+};

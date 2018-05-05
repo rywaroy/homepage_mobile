@@ -88,36 +88,36 @@
 </style>
 
 <script>
-  import axiosPlugin from '../../../plugins/axios'
+import axiosPlugin from '../../../plugins/axios';
 
-  export default {
-    async fetch({store}) {
-      if (store.state.movie.sellList.length === 0) {
-        let sell = await axiosPlugin.axios.get('time/sell')
-        let hot = await axiosPlugin.axios.get('time/hot')
-        let soon = await axiosPlugin.axios.get('time/soon')
-        store.commit('movie/setSellList', sell.data.data.movies)
-        store.commit('movie/setHotList', hot.data.data.ms)
-        store.commit('movie/setSoonList', soon.data.data.attention)
-      }
-      store.commit('movie/setTitle', 'Time时光')
-      store.commit('movie/setBack', false)
-    },
-    data() {
-      return {
-        selected: "sell"
-      }
-    },
-    computed: {
-      sellList() {
-        return this.$store.state.movie.sellList
-      },
-      hotList() {
-        return this.$store.state.movie.hotList
-      },
-      soonList() {
-        return this.$store.state.movie.soonList
-      }
+export default {
+  async fetch({ store }) {
+    if (store.state.movie.sellList.length === 0) {
+      const sell = await axiosPlugin.axios.get('time/sell');
+      const hot = await axiosPlugin.axios.get('time/hot');
+      const soon = await axiosPlugin.axios.get('time/soon');
+      store.commit('movie/setSellList', sell.data.data.movies);
+      store.commit('movie/setHotList', hot.data.data.ms);
+      store.commit('movie/setSoonList', soon.data.data.attention);
     }
-  }
+    store.commit('movie/setTitle', 'Time时光');
+    store.commit('movie/setBack', false);
+  },
+  data() {
+    return {
+      selected: 'sell',
+    };
+  },
+  computed: {
+    sellList() {
+      return this.$store.state.movie.sellList;
+    },
+    hotList() {
+      return this.$store.state.movie.hotList;
+    },
+    soonList() {
+      return this.$store.state.movie.soonList;
+    },
+  },
+};
 </script>

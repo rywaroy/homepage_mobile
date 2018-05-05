@@ -12,7 +12,7 @@
 </template>
 <style>
   .comment {
-    padding: 15px 0px;
+    padding: 15px 0;
     margin-bottom: 5px;
     border-bottom: 1px solid #ccc;
   }
@@ -43,7 +43,7 @@
   .comment-time {
     font-size: 14px;
     line-height: 30px;
-    color: #999
+    color: #999;
   }
 
   .comment-content {
@@ -54,22 +54,22 @@
   }
 </style>
 <script>
-  import moment from 'moment'
+import moment from 'moment';
 
-  export default {
-    props: {
-      avatar: {
-        type: String
-      },
-      name: {
-        type: String
-      },
-      time: {
-        type: String
-      },
-      content: {
-        type: String
-      }
-    }
-  }
+export default {
+  props: {
+    avatar: {
+      type: String,
+    },
+    name: {
+      type: String,
+    },
+    time: {
+      type: String,
+    },
+    content: {
+      type: String,
+    },
+  },
+};
 </script>

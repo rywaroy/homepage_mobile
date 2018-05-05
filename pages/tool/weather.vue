@@ -99,41 +99,41 @@
 </style>
 
 <script>
-  import axiosPlugin from '../../plugins/axios'
+import axiosPlugin from '../../plugins/axios'
 
-  const getWeatherCode = (code) => {
-    if (code < 4) {
-      return 1  //晴
-    } else if (code < 9) {
-      return 2 //多云
-    } else if (code < 10) {
-      return 3 //阴
-    } else if (code < 19) {
-      return 4 //雨
-    } else if (code < 26) {
-      return 5 //雪
-    } else {
-      return 6 //其他
+const getWeatherCode = (code) => {
+  if (code < 4) {
+    return 1; // 晴
+  } else if (code < 9) {
+    return 2; // 多云
+  } else if (code < 10) {
+    return 3; // 阴
+  } else if (code < 19) {
+    return 4; // 雨
+  } else if (code < 26) {
+    return 5; // 雪
+  } else {
+    return 6; // 其他
+  }
+};
+
+export default {
+  async fetch({ store }) {
+    store.commit('tool/setTitle', '中央天气预报');
+    store.commit('tool/setBack', false);
+    if (store.state.tool.weatherList.length === 0) {
+      const res = await axiosPlugin.axios.get('weather/all?city=CHZJ000000');
+      for (const item of res.data.data.weather[0].future) {
+        item.code1 = getWeatherCode(item.code1);
+        item.code2 = getWeatherCode(item.code2);
+      }
+      store.commit('tool/setWeatherList', res.data.data.weather[0].future);
     }
-  }
-
-  export default {
-    async fetch({store}) {
-      store.commit('tool/setTitle', '中央天气预报')
-      store.commit('tool/setBack', false)
-      if (store.state.tool.weatherList.length === 0) {
-        let res = await axiosPlugin.axios.get('weather/all?city=CHZJ000000')
-        for (let item of res.data.data.weather[0].future) {
-          item.code1 = getWeatherCode(item.code1)
-          item.code2 = getWeatherCode(item.code2)
-        }
-        store.commit('tool/setWeatherList', res.data.data.weather[0].future)
-      }
+  },
+  computed: {
+    weatherList() {
+      return this.$store.state.tool.weatherList;
     },
-    computed: {
-      weatherList() {
-        return this.$store.state.tool.weatherList
-      }
-    },
-  }
+  },
+};
 </script>

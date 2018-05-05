@@ -65,52 +65,52 @@
 </style>
 
 <script>
-  import axios from 'axios'
+import axios from 'axios';
 
-  export default {
-    async fetch({store}) {
-      if (store.state.magazine.oneList.length === 0) {
-        let data = await axios.get('http://v3.wufazhuce.com:8000/api/onelist/idlist/?channel=wdj&version=4.0.2&uuid=ffffffff-a90e-706a-63f7-ccf973aae5ee&platform=android')
-        let list = await axios.get(`http://v3.wufazhuce.com:8000/api/onelist/${data.data.data[0]}/0?cchannel=wdj&version=4.0.2&uuid=ffffffff-a90e-706a-63f7-ccf973aae5ee&platform=android`)
-        store.commit('magazine/setOneList', list.data.data.content_list)
-      }
-      store.commit('magazine/setTitle', 'ONE · 一个')
-      store.commit('magazine/setBack', false)
-    },
-    computed: {
-      oneList() {
-        return this.$store.state.magazine.oneList
-      }
-    },
-    methods: {
-      link(type, id) {
-        if (type !== '0') {
-          this.$router.push({path: `/magazine/one/detail/${type}/${id}`})
-        }
-      }
-    },
-    filters: {
-      filterTag(val) {
-        switch (val) {
-          case '1':
-            return '阅读'
-            break
-          case '2':
-            return '连载'
-            break
-          case '3':
-            return '问答'
-            break
-          case '4':
-            return '音乐'
-            break
-          case '5':
-            return '影视'
-            break
-          default:
-            return null
-        }
-      }
+export default {
+  async fetch({ store }) {
+    if (store.state.magazine.oneList.length === 0) {
+      const data = await axios.get('http://v3.wufazhuce.com:8000/api/onelist/idlist/?channel=wdj&version=4.0.2&uuid=ffffffff-a90e-706a-63f7-ccf973aae5ee&platform=android');
+      const list = await axios.get(`http://v3.wufazhuce.com:8000/api/onelist/${data.data.data[0]}/0?cchannel=wdj&version=4.0.2&uuid=ffffffff-a90e-706a-63f7-ccf973aae5ee&platform=android`);
+      store.commit('magazine/setOneList', list.data.data.content_list);
     }
-  }
+    store.commit('magazine/setTitle', 'ONE · 一个');
+    store.commit('magazine/setBack', false);
+  },
+  computed: {
+    oneList() {
+      return this.$store.state.magazine.oneList;
+    },
+  },
+  methods: {
+    link(type, id) {
+      if (type !== '0') {
+        this.$router.push({ path: `/magazine/one/detail/${type}/${id}` });
+      }
+    },
+  },
+  filters: {
+    filterTag(val) {
+      switch (val) {
+        case '1':
+          return '阅读';
+          break;
+        case '2':
+          return '连载';
+          break;
+        case '3':
+          return '问答';
+          break;
+        case '4':
+          return '音乐';
+          break;
+        case '5':
+          return '影视';
+          break;
+        default:
+          return null;
+      }
+    },
+  },
+};
 </script>

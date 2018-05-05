@@ -15,8 +15,7 @@
       </div>
       <div class="comment-box">
         <div class="comment-box-title">评论</div>
-        <commentItem v-for="(item,index) in comment" :key="index" :name="item.name" :time="item.time"
-                     :content="item.content"></commentItem>
+        <commentItem v-for="(item,index) in comment" :key="index" :name="item.name" :time="item.time" :content="item.content"></commentItem>
       </div>
     </div>
   </div>
@@ -96,65 +95,65 @@
   }
 </style>
 <script>
-  import axiosPlus from '../../../../plugins/axios'
-  import commentItem from '../../../../components/CommentItem'
+import axiosPlus from '../../../../plugins/axios';
+import commentItem from '../../../../components/CommentItem';
 
-  export default {
-    async asyncData({params, store}) {
-      store.commit('blog/setBack', true)
-      store.commit('blog/setTitle', '文章')
-      let info = await axiosPlus.axios.get('article/info', {params: {id: params.id}})
-      let comment = await axiosPlus.axios.get('article/comment', {params: {id: params.id}})
-      return {
-        info: info.data.data,
-        comment: comment.data.data
+export default {
+  async asyncData({ params, store }) {
+    store.commit('blog/setBack', true);
+    store.commit('blog/setTitle', '文章');
+    const info = await axiosPlus.axios.get('article/info', { params: { id: params.id } });
+    const comment = await axiosPlus.axios.get('article/comment', { params: { id: params.id } });
+    return {
+      info: info.data.data,
+      comment: comment.data.data,
+    };
+  },
+  head() {
+    return {
+      title: `${this.$store.state.blogTitle} - ${this.info.title}`,
+      meta: [
+        { hid: 'description', name: 'description', content: this.info.title },
+      ],
+    };
+  },
+  data() {
+    return {
+      showCommentWrite: false,
+      name: '',
+      content: '',
+    };
+  },
+  methods: {
+    send() {
+      if (!this.content) {
+        this.$toast('请输入评论内容');
+        return;
       }
+      axiosPlus.axios.post('article/comment', {
+        name: this.name,
+        content: this.content,
+        id: this.$route.params.id,
+      }).then(() => {
+        this.$toast('评论成功');
+        this.name = '';
+        this.content = '';
+        this.showCommentWrite = false;
+        this.getComment();
+      });
     },
-    head() {
-      return {
-        title: `${this.$store.state.blogTitle} - ${this.info.title}`,
-        meta: [
-          {hid: 'description', name: 'description', content: this.info.title}
-        ]
-      }
+    getComment() {
+      axiosPlus.axios.get('article/comment', {
+        params: {
+          id: this.$route.params.id,
+        },
+      }).then(res => {
+        this.comment = res.data.data;
+      });
     },
-    data() {
-      return {
-        showCommentWrite: false,
-        name: '',
-        content: ''
-      }
-    },
-    methods: {
-      send() {
-        if (!this.content) {
-          this.$toast('请输入评论内容')
-          return
-        }
-        axiosPlus.axios.post('article/comment', {
-          name: this.name,
-          content: this.content,
-          id: this.$route.params.id
-        }).then(res => {
-          this.$toast('评论成功')
-          this.name = ''
-          this.content = ''
-          this.showCommentWrite = false
-          this.getComment()
-        })
-      },
-      getComment() {
-        axiosPlus.axios.get('article/comment', {
-          params: {
-            id: this.$route.params.id
-          }
-        }).then(res => {
-          this.comment = res.data.data
-        })
-      }
-    },
-    components: {
-      commentItem
-    }
-  }
+  },
+  components: {
+    commentItem,
+  },
+};
 </script>

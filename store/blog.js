@@ -1,4 +1,4 @@
-import axiosPlugin from '../plugins/axios'
+
 
 export const state = () => ({
   title: '',
@@ -12,59 +12,59 @@ export const state = () => ({
   learnPage: 1,
   learnTotal: 0,
   learnLimit: 10,
-})
+});
 
 export const mutations = {
-  setTitle(state, data) { //设置标题
-    state.title = data
+  setTitle(state, data) { // 设置标题
+    state.title = data;
   },
-  setBack(state, boolean) { //是否可以后退
-    state.back = boolean
+  setBack(state, boolean) { // 是否可以后退
+    state.back = boolean;
   },
-  setArticleList(state, data) { //设置文章列表
+  setArticleList(state, data) { // 设置文章列表
     if (state.articlePage === 1) {
-      state.articleList = data
+      state.articleList = data;
     } else {
-      state.articleList = state.articleList.concat(data)
+      state.articleList = state.articleList.concat(data);
     }
   },
   setArticleTotal(state, number) {
-    state.articleTotal = number
+    state.articleTotal = number;
   },
-  setArticlePage(state, number) { //设置文章页码
+  setArticlePage(state, number) { // 设置文章页码
     if (number === 1) {
-      state.articlePage = 1
+      state.articlePage = 1;
     } else {
-      state.articlePage++
+      state.articlePage++;
     }
   },
   setAlbumList(state, data) {
-    state.albumList = data
+    state.albumList = data;
   },
-  setLearnList(state, data) { //设置文章列表
+  setLearnList(state, data) { // 设置文章列表
     if (state.learnPage === 1) {
-      state.learnList = data
+      state.learnList = data;
     } else {
-      state.learnList = state.learnList.concat(data)
+      state.learnList = state.learnList.concat(data);
     }
   },
   setLearnTotal(state, number) {
-    state.learnTotal = number
+    state.learnTotal = number;
   },
-  setLearnPage(state, number) { //设置文章页码
+  setLearnPage(state, number) { // 设置文章页码
     if (number === 1) {
-      state.learnPage = 1
+      state.learnPage = 1;
     } else {
-      state.learnPage++
+      state.learnPage++;
     }
   },
 }
 
 export const getters = {
-  articleCanScroll(state) {  //文章是否可以继续加载
-    return (state.articlePage >= Math.ceil(state.articleTotal / state.articleLimit)) ? false : true
+  articleCanScroll(state) { // 文章是否可以继续加载
+    return (state.articlePage >= Math.ceil(state.articleTotal / state.articleLimit)) ? false : true;
   },
-  learnCanScroll(state) {  //文章是否可以继续加载
-    return (state.learnPage >= Math.ceil(state.learnTotal / state.learnLimit)) ? false : true
+  learnCanScroll(state) { // 文章是否可以继续加载
+    return (state.learnPage >= Math.ceil(state.learnTotal / state.learnLimit)) ? false : true;
   },
 }

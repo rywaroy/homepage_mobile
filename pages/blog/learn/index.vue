@@ -105,88 +105,88 @@
 </style>
 
 <script>
-  import axiosPlugin from '../../../plugins/axios'
-  import Scroll from '../../../components/Scroll'
-  import Bubble from '../../../components/Bubble'
+import axiosPlugin from '../../../plugins/axios';
+import Scroll from '../../../components/Scroll';
+import Bubble from '../../../components/Bubble';
 
-  export default {
-    async fetch({store}) {
-      let blog = store.state.blog
-      if (blog.learnList.length === 0) {
-        let data = await axiosPlugin.axios.get('learn/list', {
-          params: {
-            page: blog.learnPage,
-            limit: blog.learnLimit
-          }
-        })
-        store.commit('blog/setLearnList', data.data.data.list)
-        store.commit('blog/setLearnTotal', data.data.data.total)
-      }
-      store.commit('blog/setTitle', '学习')
-      store.commit('blog/setBack', false)
-    },
-    data() {
-      return {
-        listenScroll: true,
-        posY: 0,
-        bubbleY: 0,
-        pullup: true,
-        pulldown: true,
-        showScrollText: false,
-      }
-    },
-    head() {
-      return {
-        title: `${this.$store.state.blogTitle} - 文章`,
-        meta: [
-          {hid: 'description', name: 'description', content: '文章'}
-        ]
-      }
-    },
-    computed: {
-      learnList() {
-        return this.$store.state.blog.learnList
-      },
-      top() {
-        return this.posY - 30
-      },
-      canScroll() {
-        return this.$store.getters['blog/learnCanScroll']
-      }
-    },
-    methods: {
-      scroll(pos) {
-        this.posY = pos.y
-        this.bubbleY = pos.y - 30
-      },
-      getlearnList() {  //获取文章列表
-        this.$loading.open();
-        let blog = this.$store.state.blog
-        axiosPlugin.axios.get('learn/list', {
-          params: {
-            page: blog.learnPage,
-            limit: blog.learnLimit
-          }
-        }).then(res => {
-          this.$store.commit('blog/setLearnList', res.data.data.list)
-          this.$store.commit('blog/setLearnTotal', res.data.data.total)
-          this.$loading.close()
-        }).catch(err => {
-          this.$loading.close()
-        })
-      },
-      loadTop() {  //下拉刷新
-        this.$store.commit('blog/setLearnPage', 1)
-        this.getlearnList()
-      },
-      loadBottom() {  //上拉加载
-        this.$store.commit('blog/setLearnPage')
-        this.getlearnList()
-      }
-    },
-    components: {
-      Scroll,
-      Bubble
+export default {
+  async fetch({ store }) {
+    const blog = store.state.blog;
+    if (blog.learnList.length === 0) {
+      const data = await axiosPlugin.axios.get('learn/list', {
+        params: {
+          page: blog.learnPage,
+          limit: blog.learnLimit,
+        },
+      });
+      store.commit('blog/setLearnList', data.data.data.list);
+      store.commit('blog/setLearnTotal', data.data.data.total);
     }
-  }
+    store.commit('blog/setTitle', '学习');
+    store.commit('blog/setBack', false);
+  },
+  data() {
+    return {
+      listenScroll: true,
+      posY: 0,
+      bubbleY: 0,
+      pullup: true,
+      pulldown: true,
+      showScrollText: false,
+    };
+  },
+  head() {
+    return {
+      title: `${this.$store.state.blogTitle} - 文章`,
+      meta: [
+        { hid: 'description', name: 'description', content: '文章' },
+      ],
+    };
+  },
+  computed: {
+    learnList() {
+      return this.$store.state.blog.learnList;
+    },
+    top() {
+      return this.posY - 30;
+    },
+    canScroll() {
+      return this.$store.getters['blog/learnCanScroll'];
+    },
+  },
+  methods: {
+    scroll(pos) {
+      this.posY = pos.y;
+      this.bubbleY = pos.y - 30;
+    },
+    getlearnList() { // 获取文章列表
+      this.$loading.open();
+      const blog = this.$store.state.blog;
+      axiosPlugin.axios.get('learn/list', {
+        params: {
+          page: blog.learnPage,
+          limit: blog.learnLimit,
+        },
+      }).then(res => {
+        this.$store.commit('blog/setLearnList', res.data.data.list);
+        this.$store.commit('blog/setLearnTotal', res.data.data.total);
+        this.$loading.close();
+      }).catch(() => {
+        this.$loading.close();
+      });
+    },
+    loadTop() { // 下拉刷新
+      this.$store.commit('blog/setLearnPage', 1);
+      this.getlearnList();
+    },
+    loadBottom() { // 上拉加载
+      this.$store.commit('blog/setLearnPage');
+      this.getlearnList();
+    },
+  },
+  components: {
+    Scroll,
+    Bubble,
+  },
+};
 </script>

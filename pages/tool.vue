@@ -13,37 +13,37 @@
   </div>
 </template>
 <script>
-  import Myheader from '../components/Header'
+import Myheader from '../components/Header';
 
-  export default {
-    data() {
-      return {
-        popupVisible: false,
-        modal: false
-      }
+export default {
+  data() {
+    return {
+      popupVisible: false,
+      modal: false,
+    };
+  },
+  computed: {
+    title() {
+      return this.$store.state.tool.title;
     },
-    computed: {
-      title() {
-        return this.$store.state.tool.title
-      },
-      back() {
-        return this.$store.state.tool.back
-      }
+    back() {
+      return this.$store.state.tool.back;
     },
-    methods: {
-      open() {
-        this.popupVisible = true
-      },
-      close() {
-        this.popupVisible = false
-      },
-      link(name) {
-        this.$router.push({path: `/tool/${name}`})
-        this.close()
-      }
+  },
+  methods: {
+    open() {
+      this.popupVisible = true;
     },
-    components: {
-      Myheader
-    }
-  }
+    close() {
+      this.popupVisible = false;
+    },
+    link(name) {
+      this.$router.push({ path: `/tool/${name}` });
+      this.close();
+    },
+  },
+  components: {
+    Myheader,
+  },
+};
 </script>

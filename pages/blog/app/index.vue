@@ -15,10 +15,10 @@
 </style>
 
 <script>
-  export default {
-    async fetch({store}) {
-      store.commit('blog/setTitle', 'APP下载')
-      store.commit('blog/setBack', false)
-    }
-  }
+export default {
+  async fetch({ store }) {
+    store.commit('blog/setTitle', 'APP下载');
+    store.commit('blog/setBack', false);
+  },
+};
 </script>

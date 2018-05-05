@@ -43,7 +43,7 @@
     padding: 15px;
     display: flex;
     margin-top: 5px;
-    flex-direction: column
+    flex-direction: column;
   }
 
   .article-item-top {
@@ -109,88 +109,88 @@
 </style>
 
 <script>
-  import axiosPlugin from '../../../plugins/axios'
-  import Scroll from '../../../components/Scroll'
-  import Bubble from '../../../components/Bubble'
+import axiosPlugin from '../../../plugins/axios';
+import Scroll from '../../../components/Scroll';
+import Bubble from '../../../components/Bubble';
 
-  export default {
-    async fetch({store}) {
-      let blog = store.state.blog
-      if (blog.articleList.length === 0) {
-        let data = await axiosPlugin.axios.get('article/list', {
-          params: {
-            page: blog.articlePage,
-            limit: blog.articleLimit
-          }
-        })
-        store.commit('blog/setArticleList', data.data.data.list)
-        store.commit('blog/setArticleTotal', data.data.data.total)
-      }
-      store.commit('blog/setTitle', '日志')
-      store.commit('blog/setBack', false)
-    },
-    data() {
-      return {
-        listenScroll: true,
-        posY: 0,
-        bubbleY: 0,
-        pullup: true,
-        pulldown: true,
-        showScrollText: false,
-      }
-    },
-    head() {
-      return {
-        title: `${this.$store.state.blogTitle} - 文章`,
-        meta: [
-          {hid: 'description', name: 'description', content: '文章'}
-        ]
-      }
-    },
-    computed: {
-      articleList() {
-        return this.$store.state.blog.articleList
-      },
-      top() {
-        return this.posY - 30
-      },
-      canScroll() {
-        return this.$store.getters['blog/articleCanScroll']
-      }
-    },
-    methods: {
-      scroll(pos) {
-        this.posY = pos.y
-        this.bubbleY = pos.y - 30
-      },
-      getArticleList() {  //获取文章列表
-        this.$loading.open();
-        let blog = this.$store.state.blog
-        axiosPlugin.axios.get('article/list', {
-          params: {
-            page: blog.articlePage,
-            limit: blog.articleLimit
-          }
-        }).then(res => {
-          this.$store.commit('blog/setArticleList', res.data.data.list)
-          this.$store.commit('blog/setArticleTotal', res.data.data.total)
-          this.$loading.close()
-        }).catch(err => {
-          this.$loading.close()
-        })
-      },
-      loadTop() {  //下拉刷新
-        this.$store.commit('blog/setArticlePage', 1)
-        this.getArticleList()
-      },
-      loadBottom() {  //上拉加载
-        this.$store.commit('blog/setArticlePage')
-        this.getArticleList()
-      }
-    },
-    components: {
-      Scroll,
-      Bubble
+export default {
+  async fetch({ store }) {
+    const blog = store.state.blog;
+    if (blog.articleList.length === 0) {
+      const data = await axiosPlugin.axios.get('article/list', {
+        params: {
+          page: blog.articlePage,
+          limit: blog.articleLimit,
+        },
+      });
+      store.commit('blog/setArticleList', data.data.data.list);
+      store.commit('blog/setArticleTotal', data.data.data.total);
     }
-  }
+    store.commit('blog/setTitle', '日志');
+    store.commit('blog/setBack', false);
+  },
+  data() {
+    return {
+      listenScroll: true,
+      posY: 0,
+      bubbleY: 0,
+      pullup: true,
+      pulldown: true,
+      showScrollText: false,
+    };
+  },
+  head() {
+    return {
+      title: `${this.$store.state.blogTitle} - 文章`,
+      meta: [
+        { hid: 'description', name: 'description', content: '文章' },
+      ],
+    };
+  },
+  computed: {
+    articleList() {
+      return this.$store.state.blog.articleList;
+    },
+    top() {
+      return this.posY - 30;
+    },
+    canScroll() {
+      return this.$store.getters['blog/articleCanScroll']
+    },
+  },
+  methods: {
+    scroll(pos) {
+      this.posY = pos.y;
+      this.bubbleY = pos.y - 30;
+    },
+    getArticleList() { // 获取文章列表
+      this.$loading.open();
+      const blog = this.$store.state.blog;
+      axiosPlugin.axios.get('article/list', {
+        params: {
+          page: blog.articlePage,
+          limit: blog.articleLimit,
+        },
+      }).then(res => {
+        this.$store.commit('blog/setArticleList', res.data.data.list);
+        this.$store.commit('blog/setArticleTotal', res.data.data.total);
+        this.$loading.close();
+      }).catch(() => {
+        this.$loading.close();
+      });
+    },
+    loadTop() { // 下拉刷新
+      this.$store.commit('blog/setArticlePage', 1);
+      this.getArticleList();
+    },
+    loadBottom() { // 上拉加载
+      this.$store.commit('blog/setArticlePage');
+      this.getArticleList();
+    },
+  },
+  components: {
+    Scroll,
+    Bubble,
+  },
+};
 </script>

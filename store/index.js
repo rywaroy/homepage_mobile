@@ -1,3 +1,3 @@
 export const state = () => ({
-  blogTitle: '个人主页'
-})
+  blogTitle: '个人主页',
+});

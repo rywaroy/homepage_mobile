@@ -8,26 +8,26 @@
   </div>
 </template>
 <script>
-  export default {
-    props: {
-      title: {
-        type: String,
-        default: ''
-      },
-      back: {
-        type: Boolean,
-        default: false
-      }
+export default {
+  props: {
+    title: {
+      type: String,
+      default: '',
     },
-    methods: {
-      openMenu() {
-        this.$emit('open')
-      },
-      goBack() {
-        this.$router.go(-1)
-      }
-    }
-  }
+    back: {
+      type: Boolean,
+      default: false,
+    },
+  },
+  methods: {
+    openMenu() {
+      this.$emit('open');
+    },
+    goBack() {
+      this.$router.go(-1);
+    },
+  },
+};
 </script>
 
 <style>

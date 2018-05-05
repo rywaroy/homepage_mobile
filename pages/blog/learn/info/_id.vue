@@ -8,32 +8,38 @@
 </template>
 <style>
 @import '../../../../assets/css/markdown.css';
-.learn-info{
+
+.learn-info {
   padding-top: 15px;
   background: #fff; 
 }
-.learn-title{
+
+.learn-title {
   font-size: 18px;
   line-height: 24px;
   color: #333;
   padding: 0 15px;
   text-align: center;
 }
-.learn-content{
+
+.learn-content {
   padding: 0 15px;
   margin-top: 20px;
-  min-height:400px;
+  min-height: 400px;
 }
-.learn-content img{
+
+.learn-content img {
   max-width: 100%;
 }
-.learn-write{
+
+.learn-write {
   display: flex;
   justify-content: flex-end;
   padding-right: 15px;
   margin-bottom: 10px;
 }
-.learn-write-text{
+
+.learn-write-text {
   font-size: 14px;
   line-height: 30px;
   color: #bfbfbf;
@@ -41,17 +47,20 @@
   background: url('../../../../assets/img/comment.png') no-repeat right center;
   background-size: 20px 20px;
 }
-.learn-write-text.active{
+
+.learn-write-text.active {
   color: #1296db;
   background: url('../../../../assets/img/comment_active.png') no-repeat right center;
   background-size: 20px 20px;
 }
-.learn-write-content{
+
+.learn-write-content {
   padding: 0 15px;
   margin-bottom: 20px;
 }
-.learn-input{
-  height:30px;
+
+.learn-input {
+  height: 30px;
   width: 100%;
   background: #fff;
   border: 1px solid #ccc;
@@ -61,7 +70,8 @@
   line-height: 30px;
   margin-bottom: 8px;
 }
-.learn-textarea{
+
+.learn-textarea {
   width: 100%;
   height: 150px;
   border: 1px solid #ccc;
@@ -73,23 +83,24 @@
 }
 </style>
 <script>
-import axiosPlus from '../../../../plugins/axios'
+import axiosPlus from '../../../../plugins/axios';
+
 export default {
-  async asyncData({ params , store }){
-    store.commit('blog/setBack',true)
-    store.commit('blog/setTitle','学习')
-    let info = await axiosPlus.axios.get('learn/info',{params:{id:params.id}})
+  async asyncData({ params, store }) {
+    store.commit('blog/setBack', true);
+    store.commit('blog/setTitle', '学习');
+    const info = await axiosPlus.axios.get('learn/info', { params: { id: params.id } });
     return {
-      info:info.data.data,
-    }
+      info: info.data.data,
+    };
   },
-  head () {
+  head() {
     return {
       title: `${this.$store.state.blogTitle} - ${this.info.title}`,
       meta: [
-        { hid: 'description', name: 'description', content: this.info.title }
-      ]
-    }
+        { hid: 'description', name: 'description', content: this.info.title },
+      ],
+    };
   },
-}
+};
 </script>

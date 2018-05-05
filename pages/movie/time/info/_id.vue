@@ -41,16 +41,16 @@
 </style>
 
 <script>
-  import axiosPlus from '../../../../plugins/axios'
+import axiosPlus from '../../../../plugins/axios';
 
-  export default {
-    async asyncData({route, store}) {
-      store.commit('movie/setTitle', 'Time时光')
-      store.commit('movie/setBack', true)
-      let info = await axiosPlus.axios.get('time/info', {params: {id: route.params.id}})
-      return {
-        info: info.data.data.info.basic
-      }
-    }
-  }
+export default {
+  async asyncData({ route, store }) {
+    store.commit('movie/setTitle', 'Time时光');
+    store.commit('movie/setBack', true);
+    const info = await axiosPlus.axios.get('time/info', { params: { id: route.params.id } });
+    return {
+      info: info.data.data.info.basic,
+    };
+  },
+};
 </script>

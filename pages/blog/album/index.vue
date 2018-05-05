@@ -43,20 +43,20 @@
 </style>
 
 <script>
-  import axiosPlugin from '../../../plugins/axios'
+import axiosPlugin from '../../../plugins/axios';
 
-  export default {
-    async fetch({store}) {
-      if (store.state.movie.doubanList.length === 0) {
-        let res = await axiosPlugin.axios.get('album/album')
-        store.commit('blog/setAlbumList', res.data.data)
-      }
-      store.commit('blog/setTitle', '相册')
-    },
-    computed: {
-      albumList() {
-        return this.$store.state.blog.albumList
-      }
+export default {
+  async fetch({ store }) {
+    if (store.state.movie.doubanList.length === 0) {
+      const res = await axiosPlugin.axios.get('album/album');
+      store.commit('blog/setAlbumList', res.data.data);
     }
-  }
+    store.commit('blog/setTitle', '相册');
+  },
+  computed: {
+    albumList() {
+      return this.$store.state.blog.albumList;
+    },
+  },
+};
 </script>
