@@ -10,7 +10,7 @@
 @import '../../../../assets/css/markdown.css';
 .learn-info{
   padding-top: 15px;
-  background: #fff;
+  background: #fff; 
 }
 .learn-title{
   font-size: 18px;

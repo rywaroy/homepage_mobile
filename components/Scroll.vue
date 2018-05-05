@@ -76,7 +76,7 @@
       /**
        * 是否可以下拉加载。
        */
-      canScroll:{
+      canScroll: {
         type: Boolean,
         default: false
       }
@@ -111,10 +111,10 @@
           this.scroll.on('scrollEnd', () => {
             // 滚动到底部
             if (this.scroll.y <= (this.scroll.maxScrollY + 50)) {
-              if(this.canScroll){
+              if (this.canScroll) {
                 this.$emit('scrollToEnd')
               }
-              
+
             }
           })
         }
@@ -122,7 +122,7 @@
         // 是否派发顶部下拉事件，用于下拉刷新
         if (this.pulldown) {
           this.scroll.on('touchEnd', (pos) => {
-            // 下拉动作           
+            // 下拉动作
             if (pos.y > 10) {
               this.$emit('pulldown')
             }

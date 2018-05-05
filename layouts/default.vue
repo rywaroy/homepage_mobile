@@ -24,13 +24,14 @@
   </div>
 </template>
 <style>
-.app{
+  .app {
     height: 100%;
     padding-bottom: 55px;
     width: 100vw;
     background: #f5f5f5;
-}
-.nav{
+  }
+
+  .nav {
     height: 55px;
     display: flex;
     position: fixed;
@@ -40,57 +41,69 @@
     width: 100%;
     border-top: 1px solid #ccc;
     background: #fff;
-}
-.nav-item{
-    display:flex;
+  }
+
+  .nav-item {
+    display: flex;
     flex: 1;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-}
-.nav-item-title{
-  font-size: 12px;
-  line-height: 12px;
-  margin-top: 7px;
-  color: #000;
-}
-.nav-item.nav-item.active-link .nav-item-title{
-  color: #1296db
-}
-.nav-item-icon{
-  width: 20px;
-  height: 20px;
-}
-.nav-item-icon.magazine{
-  background: url('../assets/img/icon1.png') no-repeat;
-  background-size: contain;
-}
-.nav-item.active-link .nav-item-icon.magazine{
-  background: url('../assets/img/icon2.png') no-repeat;
-  background-size: contain;
-}
-.nav-item-icon.movie{
-  background: url('../assets/img/icon3.png') no-repeat;
-  background-size: contain;
-}
-.nav-item.active-link .nav-item-icon.movie{
-  background: url('../assets/img/icon4.png') no-repeat;
-  background-size: contain;
-}
-.nav-item-icon.tool{
-  background: url('../assets/img/icon5.png') no-repeat;
-  background-size: contain;
-}
-.nav-item.active-link .nav-item-icon.tool{
-  background: url('../assets/img/icon6.png') no-repeat;
-  background-size: contain;
-}
-.nav-item-icon.blog{
-  background: url('../assets/img/icon7.png') no-repeat;
-  background-size: contain;
-}
-.nav-item.active-link .nav-item-icon.blog{
-  background: url('../assets/img/icon8.png') no-repeat;
-  background-size: contain;
-}
+  }
+
+  .nav-item-title {
+    font-size: 12px;
+    line-height: 12px;
+    margin-top: 7px;
+    color: #000;
+  }
+
+  .nav-item.nav-item.active-link .nav-item-title {
+    color: #1296db
+  }
+
+  .nav-item-icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  .nav-item-icon.magazine {
+    background: url('../assets/img/icon1.png') no-repeat;
+    background-size: contain;
+  }
+
+  .nav-item.active-link .nav-item-icon.magazine {
+    background: url('../assets/img/icon2.png') no-repeat;
+    background-size: contain;
+  }
+
+  .nav-item-icon.movie {
+    background: url('../assets/img/icon3.png') no-repeat;
+    background-size: contain;
+  }
+
+  .nav-item.active-link .nav-item-icon.movie {
+    background: url('../assets/img/icon4.png') no-repeat;
+    background-size: contain;
+  }
+
+  .nav-item-icon.tool {
+    background: url('../assets/img/icon5.png') no-repeat;
+    background-size: contain;
+  }
+
+  .nav-item.active-link .nav-item-icon.tool {
+    background: url('../assets/img/icon6.png') no-repeat;
+    background-size: contain;
+  }
+
+  .nav-item-icon.blog {
+    background: url('../assets/img/icon7.png') no-repeat;
+    background-size: contain;
+  }
+
+  .nav-item.active-link .nav-item-icon.blog {
+    background: url('../assets/img/icon8.png') no-repeat;
+    background-size: contain;
+  }
 </style>
