@@ -34,12 +34,12 @@ export const mutations = {
     }
   },
   setDoubanPage(state, page) {
-    if(page){
+    if (page) {
       state.doubanPage = page
-    }else{
+    } else {
       state.doubanPage++
     }
-    
+
   },
   setDoubanTotal(state, data) {
     state.doubanTotal = data
@@ -47,7 +47,7 @@ export const mutations = {
 }
 
 export const getters = {
-  doubanCanScroll(state){  //文章是否可以继续加载
+  doubanCanScroll(state) {  //文章是否可以继续加载
     return (state.doubanPage >= Math.ceil(state.doubanTotal / state.doubanLimit)) ? false : true
   }
 }
