@@ -11,20 +11,21 @@
   box-sizing: border-box;
 }
 
-html,body{
-  height: 100%;
-}
-#__nuxt,#__layout{
+html, body {
   height: 100%;
 }
 
-.app-content{
-    padding-top: 44px;
-    height: 100%;
-    overflow: hidden;
+#__nuxt, #__layout {
+  height: 100%;
 }
 
-.full-content{
+.app-content {
+  padding-top: 44px;
+  height: 100%;
+  overflow: hidden;
+}
+
+.full-content {
   width: 100%;
   height: 100%;
   overflow: hidden;
@@ -100,52 +101,60 @@ html,body{
   background-repeat: no-repeat;
 }
 
-.better-scroll{
-    width: 100%;
-    height: 100%;
+.better-scroll {
+  width: 100%;
+  height: 100%;
 }
-.scroll-wrapper{
+
+.scroll-wrapper {
   width: 100%;
   min-height: 100.5%;
 }
 
-.comment-box{
+.comment-box {
   padding: 0 15px;
 }
-.comment-box-title{
+
+.comment-box-title {
   font-size: 18px;
   line-height: 40px;
   color: #333;
   border-bottom: 1px solid #666;
   margin-bottom: 20px;
 }
-.single-box{
+
+.single-box {
   padding: 15px;
   background: #fff;
 }
-.single-title{
+
+.single-title {
   font-size: 18px;
   line-height: 24px;
   color: #333;
   padding: 0 15px;
   text-align: center;
 }
-.single-author{
+
+.single-author {
   font-size: 13px;
   line-height: 24px;
   color: #999;
   margin-top: 10px;
 }
-.single-content{
+
+.single-content {
   font-size: 14px;
   line-height: 26px;
   margin-top: 20px;
   color: #666;
 }
-.single-content img{
+
+.single-content img {
   max-width: 100%;
 }
-.single-subtitle{
+
+.single-subtitle {
   font-size: 14px;
   line-height: 30px;
   color: #999;
