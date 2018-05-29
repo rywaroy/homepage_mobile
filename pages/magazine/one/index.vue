@@ -30,7 +30,7 @@
     text-align: center;
     color: #999;
     font-size: 14px;
-    line-height: 20px
+    line-height: 20px;
   }
 
   .one-title {
