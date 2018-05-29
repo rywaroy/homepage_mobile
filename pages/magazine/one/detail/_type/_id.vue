@@ -38,14 +38,14 @@ export default {
         break;
       case '2':
         // 获取连载详情
-        res = await axios.get(`http://v3.wufazhuce.com:8000/api/serialcontent/${route.params.id}?channel=wdj&source=channel_reading&source_id=9264&version=4.0.2&uuid=ffffffff-a90e-706a-63f7-ccf973aae5ee&platform=android`)
+        res = await axios.get(`http://v3.wufazhuce.com:8000/api/serialcontent/${route.params.id}?channel=wdj&source=channel_reading&source_id=9264&version=4.0.2&uuid=ffffffff-a90e-706a-63f7-ccf973aae5ee&platform=android`);
         data = res.data.data;
         return {
           title: data.title,
           author: data.author.user_name,
           content: data.content,
-        }
-        break
+        };
+        break;
       case '3':
         // 获取问答详情
         res = await axios.get(`http://v3.wufazhuce.com:8000/api/question/${route.params.id}?channel=wdj&source=channel_reading&source_id=9254&version=4.0.2&uuid=ffffffff-a90e-706a-63f7-ccf973aae5ee&platform=android`);
@@ -60,7 +60,7 @@ export default {
         break;
       case '4':
         // 获取音乐详情
-        res = await axios.get(`http://v3.wufazhuce.com:8000/api/music/detail/${route.params.id}?channel=wdj&version=4.0.2&uuid=ffffffff-a90e-706a-63f7-ccf973aae5ee&platform=android`)
+        res = await axios.get(`http://v3.wufazhuce.com:8000/api/music/detail/${route.params.id}?channel=wdj&version=4.0.2&uuid=ffffffff-a90e-706a-63f7-ccf973aae5ee&platform=android`);
         data = res.data.data;
         return {
           title: data.story_title,
@@ -70,17 +70,17 @@ export default {
         break;
       case '5':
         // 获取影视详情
-        res = await axios.get(`http://v3.wufazhuce.com:8000/api/movie/${route.params.id}/story/1/0?channel=wdj&version=4.0.2&uuid=ffffffff-a90e-706a-63f7-ccf973aae5ee&platform=android`)
+        res = await axios.get(`http://v3.wufazhuce.com:8000/api/movie/${route.params.id}/story/1/0?channel=wdj&version=4.0.2&uuid=ffffffff-a90e-706a-63f7-ccf973aae5ee&platform=android`);
         data = res.data.data.data[0];
         return {
           title: data.title,
           author: data.author_list[0].user_name,
           content: data.content,
-        }
+        };
         break;
       default:
         return null;
     }
   },
-}
+};
 </script>

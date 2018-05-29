@@ -155,7 +155,7 @@ export default {
       return this.posY - 30;
     },
     canScroll() {
-      return this.$store.getters['blog/articleCanScroll']
+      return this.$store.getters['blog/articleCanScroll'];
     },
   },
   methods: {

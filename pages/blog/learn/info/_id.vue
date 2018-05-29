@@ -11,7 +11,7 @@
 
 .learn-info {
   padding-top: 15px;
-  background: #fff; 
+  background: #fff;
 }
 
 .learn-title {

@@ -17,7 +17,8 @@
     "better-scroll": "^1.8.4",
     "mint-ui": "^2.2.13",
     "nuxt": "^1.0.0",
-    "qs": "^6.5.1"
+    "qs": "^6.5.1",
+    "vue": "^2.5.16"
   },
   "devDependencies": {
     "babel-eslint": "^8.2.1",

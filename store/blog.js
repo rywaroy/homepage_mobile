@@ -58,7 +58,7 @@ export const mutations = {
       state.learnPage++;
     }
   },
-}
+};
 
 export const getters = {
   articleCanScroll(state) { // 文章是否可以继续加载
@@ -67,4 +67,4 @@ export const getters = {
   learnCanScroll(state) { // 文章是否可以继续加载
     return (state.learnPage >= Math.ceil(state.learnTotal / state.learnLimit)) ? false : true;
   },
-}
+};

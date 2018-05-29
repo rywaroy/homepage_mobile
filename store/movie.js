@@ -39,15 +39,14 @@ export const mutations = {
     } else {
       state.doubanPage++;
     }
-
   },
   setDoubanTotal(state, data) {
     state.doubanTotal = data;
-  }
-}
+  },
+};
 
 export const getters = {
-  doubanCanScroll(state) {  // 文章是否可以继续加载
+  doubanCanScroll(state) { // 文章是否可以继续加载
     return (state.doubanPage >= Math.ceil(state.doubanTotal / state.doubanLimit)) ? false : true;
   },
 };

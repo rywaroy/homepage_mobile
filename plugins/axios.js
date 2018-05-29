@@ -4,8 +4,8 @@ import { Toast } from 'mint-ui';
 import qs from 'qs';
 
 const Axios = axios.create({
-  baseURL: 'http://localhost:3001/api/',
-  // baseURL:'http://www.3zsd.com/api/',
+  // baseURL: 'http://localhost:3001/api/',
+  baseURL: 'http://www.3zsd.com/api/',
   timeout: 10000,
   responseType: 'json',
   //   withCredentials: true, // 是否允许带cookie这些
@@ -36,7 +36,7 @@ Axios.interceptors.request.use(
 // 返回状态判断(添加响应拦截器)
 Axios.interceptors.response.use(
   res => {
-    if (res.data.status != '0000') {
+    if (res.data.status !== '0000') {
       Toast(res.data.msg);
       return Promise.reject(res.data.Msg);
     }
@@ -55,4 +55,4 @@ Axios.interceptors.response.use(
 
 Vue.prototype.$http = Axios;
 
-export default { axios: Axios }
+export default { axios: Axios };

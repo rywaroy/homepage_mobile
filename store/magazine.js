@@ -13,5 +13,5 @@ export const mutations = {
   },
   setOneList(state, data) {
     state.oneList = data;
-  }
-}
+  },
+};
