@@ -38,8 +38,7 @@
       </div>
       <div class="comment-box">
         <div class="comment-box-title">精彩评论</div>
-        <commentItem v-for="(item,index) in info.popular_comments" :key="index" :avatar="item.author.avatar"
-                     :name="item.author.name" :time="item.created_at" :content="item.content"></commentItem>
+        <commentItem v-for="(item,index) in info.popular_comments" :key="index" :avatar="item.author.avatar" :name="item.author.name" :time="item.time" :content="item.content"></commentItem>
       </div>
     </div>
   </div>
@@ -84,11 +83,6 @@ export default {
     return {
       info: info.data.data,
     };
-  },
-  filters: {
-    getImgUrl(url) { // 处理图片资源403
-      return url.replace(/http\w{0,1}:\/\//g, 'https://images.weserv.nl/?url=');
-    },
   },
   components: {
     commentItem,
