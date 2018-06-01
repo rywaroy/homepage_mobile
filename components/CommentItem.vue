@@ -63,7 +63,7 @@ export default {
       type: String,
     },
     time: {
-      type: String,
+      type: [String, Number],
     },
     content: {
       type: String,
