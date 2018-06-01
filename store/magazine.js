@@ -2,6 +2,7 @@ export const state = () => ({
   title: '',
   back: false,
   oneList: [],
+  zhihuList: [],
 });
 
 export const mutations = {
@@ -13,5 +14,8 @@ export const mutations = {
   },
   setOneList(state, data) {
     state.oneList = data;
+  },
+  setZhihuList(state, data) {
+    state.zhihuList = data;
   },
 };

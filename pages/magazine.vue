@@ -8,6 +8,7 @@
       class="popup">
       <div class="popup-link" @click="link('one')">ONE · 一个</div>
       <div class="popup-link" @click="link('huaban')">花瓣相册</div>
+      <div class="popup-link" @click="link('zhihu')">知乎日报</div>
       <div class="popup-close" @click="close()">关闭</div>
     </mt-popup>
     <nuxt-child/>
