@@ -18,7 +18,7 @@
             </div>
             <div class="think-item-content">{{item.content}}</div>
             <div class="think-item-photos" v-if="item.photos.length > 0">
-              <div class="think-item-photo bg-cover" v-for="(photo, p) in item.photos" :key="p" :style="{backgroundImage: `url(${photo})`}"></div>
+              <div class="think-item-photo bg-cover" v-for="(photo, p) in item.photos" :key="p" :style="{backgroundImage: `url(${photo}?imageView2/1/w/210/h/210/q/75)`}"></div>
             </div>
             <div class="think-item-time">{{item.time | time}}</div>
           </div>

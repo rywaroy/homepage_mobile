@@ -2,7 +2,7 @@
   <div class="app-content">
     <div class="scroll">
       <div class="group-item" v-for="(item,index) in list" :key="index">
-        <img v-lazy="item.url" width="100%">
+        <img v-lazy="item.url + '?imageView2/2/w/300/q/75'" width="100%">
       </div>
     </div>
   </div>
