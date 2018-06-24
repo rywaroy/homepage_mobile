@@ -1,8 +1,8 @@
 import Vue from 'vue';
-import moment from 'moment';
+import dayjs from 'dayjs';
 
 Vue.filter('time', value => (
-  moment(String(value).length <= 10 ? value * 1000 : value).format('YYYY-MM-DD HH:mm')
+  dayjs(String(value).length <= 10 ? value * 1000 : value).format('YYYY-MM-DD HH:mm')
 ));
 
 Vue.filter('getImgUrl', url => (
