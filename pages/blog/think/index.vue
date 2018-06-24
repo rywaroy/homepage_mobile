@@ -44,7 +44,7 @@ export default {
         },
       });
       store.commit('blog/setThinkList', data.data.data.list);
-      store.commit('blog/setThinkTotal', data.data.data.total);
+      store.commit('blog/setThinkTotal', data.data.data.count);
     }
     store.commit('blog/setTitle', '说说');
     store.commit('blog/setBack', false);
