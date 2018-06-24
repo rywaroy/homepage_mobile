@@ -12,6 +12,10 @@ export const state = () => ({
   learnPage: 1,
   learnTotal: 0,
   learnLimit: 10,
+  thinkList: [],
+  thinkPage: 1,
+  thinkTotal: 0,
+  thinkLimit: 10,
 });
 
 export const mutations = {
@@ -58,6 +62,23 @@ export const mutations = {
       state.learnPage++;
     }
   },
+  setThinkList(state, data) { // 设置文章列表
+    if (state.thinkPage === 1) {
+      state.thinkList = data;
+    } else {
+      state.thinkList = state.thinkList.concat(data);
+    }
+  },
+  setThinkTotal(state, number) {
+    state.thinkTotal = number;
+  },
+  setThinkPage(state, number) { // 设置文章页码
+    if (number === 1) {
+      state.thinkPage = 1;
+    } else {
+      state.thinkPage++;
+    }
+  },
 };
 
 export const getters = {
@@ -66,5 +87,8 @@ export const getters = {
   },
   learnCanScroll(state) { // 文章是否可以继续加载
     return (state.learnPage >= Math.ceil(state.learnTotal / state.learnLimit)) ? false : true;
+  },
+  thinkCanScroll(state) { // 说说是否可以继续加载
+    return (state.thinkPage >= Math.ceil(state.thinkTotal / state.thinkLimit)) ? false : true;
   },
 };
