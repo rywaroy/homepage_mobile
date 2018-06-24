@@ -93,7 +93,7 @@ export default {
         },
       }).then(res => {
         this.$store.commit('blog/setThinkList', res.data.data.list);
-        this.$store.commit('blog/setThinkTotal', res.data.data.total);
+        this.$store.commit('blog/setThinkTotal', res.data.data.count);
         this.$loading.close();
       }).catch(() => {
         this.$loading.close();
