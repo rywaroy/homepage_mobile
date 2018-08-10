@@ -107,3 +107,12 @@
     background-size: contain;
   }
 </style>
+<script>
+import axiosPlugin from '../plugins/axios';
+
+export default {
+  created() {
+    axiosPlugin.axios.get('base/content');
+  },
+};
+</script>
