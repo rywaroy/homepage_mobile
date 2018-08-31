@@ -16,6 +16,7 @@ export const state = () => ({
   thinkPage: 1,
   thinkTotal: 0,
   thinkLimit: 10,
+  planList: [],
 });
 
 export const mutations = {
@@ -78,6 +79,9 @@ export const mutations = {
     } else {
       state.thinkPage++;
     }
+  },
+  setPlanList(state, data) { // 设置打卡记录
+    state.planList = data;
   },
 };
 
