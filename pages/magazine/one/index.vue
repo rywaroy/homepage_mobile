@@ -65,13 +65,13 @@
 </style>
 
 <script>
-import axios from 'axios';
+import time from 'js-time.js';
+import axiosPlugin from '../../../plugins/axios';
 
 export default {
   async fetch({ store }) {
     if (store.state.magazine.oneList.length === 0) {
-      const data = await axios.get('http://v3.wufazhuce.com:8000/api/onelist/idlist/?channel=wdj&version=4.0.2&uuid=ffffffff-a90e-706a-63f7-ccf973aae5ee&platform=android');
-      const list = await axios.get(`http://v3.wufazhuce.com:8000/api/onelist/${data.data.data[0]}/0?cchannel=wdj&version=4.0.2&uuid=ffffffff-a90e-706a-63f7-ccf973aae5ee&platform=android`);
+      const list = await axiosPlugin.axios.get(`/one/list?date=${time().format('YYYY-MM-DD')}`);
       store.commit('magazine/setOneList', list.data.data.content_list);
     }
     store.commit('magazine/setTitle', 'ONE · 一个');
