@@ -14,7 +14,7 @@
   </div>
 </template>
 <script>
-import Myheader from '../components/Header';
+import Myheader from '@/components/Header';
 
 export default {
   data() {

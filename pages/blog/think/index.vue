@@ -29,9 +29,9 @@
 </template>
 
 <script>
-import axiosPlugin from '../../../plugins/axios';
-import Scroll from '../../../components/Scroll';
-import Bubble from '../../../components/Bubble';
+import axiosPlugin from '@/plugins/axios';
+import Scroll from '@/components/Scroll';
+import Bubble from '@/components/Bubble';
 
 export default {
   async fetch({ store }) {

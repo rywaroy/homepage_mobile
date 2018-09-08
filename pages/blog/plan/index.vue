@@ -13,7 +13,7 @@
 <script>
 import VePie from 'v-charts/lib/pie.common';
 import VeBar from 'v-charts/lib/bar.common';
-import axiosPlugin from '../../../plugins/axios';
+import axiosPlugin from '@/plugins/axios';
 
 export default {
   async fetch({ store }) {

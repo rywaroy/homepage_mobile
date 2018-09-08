@@ -18,7 +18,7 @@
   }
 </style>
 <script>
-import axiosPlus from '../../../../plugins/axios';
+import axiosPlus from '@/plugins/axios';
 
 export default {
   async asyncData({ route, store }) {

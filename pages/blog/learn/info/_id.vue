@@ -83,7 +83,7 @@
 }
 </style>
 <script>
-import axiosPlus from '../../../../plugins/axios';
+import axiosPlus from '@/plugins/axios';
 
 export default {
   async asyncData({ params, store }) {

@@ -88,7 +88,7 @@
 </style>
 
 <script>
-import axiosPlugin from '../../../plugins/axios';
+import axiosPlugin from '@/plugins/axios';
 
 export default {
   async fetch({ store }) {

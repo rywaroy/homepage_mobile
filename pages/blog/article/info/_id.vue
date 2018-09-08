@@ -95,8 +95,8 @@
   }
 </style>
 <script>
-import axiosPlus from '../../../../plugins/axios';
-import commentItem from '../../../../components/CommentItem';
+import axiosPlus from '@/plugins/axios';
+import commentItem from '@/components/CommentItem';
 
 export default {
   async asyncData({ params, store }) {

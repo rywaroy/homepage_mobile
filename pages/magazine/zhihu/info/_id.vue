@@ -944,7 +944,7 @@ body.dudu-night,
 
 <script>
 import axios from 'axios';
-import commentItem from '../../../../components/CommentItem';
+import commentItem from '@/components/CommentItem';
 
 export default {
   async asyncData({ route, store }) {

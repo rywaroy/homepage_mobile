@@ -66,7 +66,7 @@
 
 <script>
 import time from 'js-time.js';
-import axiosPlugin from '../../../plugins/axios';
+import axiosPlugin from '@/plugins/axios';
 
 export default {
   async fetch({ store }) {
