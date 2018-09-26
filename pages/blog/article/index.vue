@@ -21,7 +21,7 @@
                 <div class="article-item-time">{{item.time | time}}</div>
               </div>
               <div class="article-item-right">
-                <div class="article-item-tag" :style="{backgroundColor:item.color}">{{item.tag_name}}</div>
+                <div class="article-item-tag" :style="{backgroundColor:item.tag.color}">{{item.tag.title}}</div>
                 <div class="article-item-tag" style="background-color:#ffd700;" v-if="item.top > 0">置顶</div>
               </div>
             </div>
