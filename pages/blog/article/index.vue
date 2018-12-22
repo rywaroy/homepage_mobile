@@ -116,7 +116,7 @@ export default {
   async fetch({ store }) {
     const blog = store.state.blog;
     if (blog.articleList.length === 0) {
-      const data = await axiosPlugin.axios.get('article/list', {
+      const data = await axiosPlugin.axios.get('article', {
         params: {
           page: blog.articlePage,
           limit: blog.articleLimit,

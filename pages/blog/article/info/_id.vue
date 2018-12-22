@@ -102,8 +102,8 @@ export default {
   async asyncData({ params, store }) {
     store.commit('blog/setBack', true);
     store.commit('blog/setTitle', '文章');
-    const info = await axiosPlus.axios.get('article/info', { params: { id: params.id } });
-    const comment = await axiosPlus.axios.get('article/comment', { params: { id: params.id } });
+    const info = await axiosPlus.axios.get(`article/${params.id}`);
+    const comment = await axiosPlus.axios.get(`article/${params.id}/comment`);
     return {
       info: info.data.data,
       comment: comment.data.data,
