@@ -24,7 +24,7 @@ export default {
   async asyncData({ route, store }) {
     store.commit('blog/setTitle', '相册');
     store.commit('blog/setBack', true);
-    const res = await axiosPlus.axios.get('album/group', { params: { id: route.params.id } });
+    const res = await axiosPlus.axios.get(`album/group/${route.params.id}`);
     return {
       list: res.data.data,
     };

@@ -48,7 +48,7 @@ import axiosPlugin from '@/plugins/axios';
 export default {
   async fetch({ store }) {
     if (store.state.movie.doubanList.length === 0) {
-      const res = await axiosPlugin.axios.get('album/album');
+      const res = await axiosPlugin.axios.get('album');
       store.commit('blog/setAlbumList', res.data.data);
     }
     store.commit('blog/setTitle', '相册');
