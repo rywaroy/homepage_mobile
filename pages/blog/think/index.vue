@@ -37,7 +37,7 @@ export default {
   async fetch({ store }) {
     const blog = store.state.blog;
     if (blog.thinkList.length === 0) {
-      const data = await axiosPlugin.axios.get('think/list', {
+      const data = await axiosPlugin.axios.get('think', {
         params: {
           page: blog.thinkPage,
           limit: blog.thinkLimit,
