@@ -113,7 +113,7 @@ export default {
   async fetch({ store }) {
     const blog = store.state.blog;
     if (blog.learnList.length === 0) {
-      const data = await axiosPlugin.axios.get('learn/list', {
+      const data = await axiosPlugin.axios.get('learn', {
         params: {
           page: blog.learnPage,
           limit: blog.learnLimit,

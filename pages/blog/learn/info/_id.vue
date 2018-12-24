@@ -89,7 +89,7 @@ export default {
   async asyncData({ params, store }) {
     store.commit('blog/setBack', true);
     store.commit('blog/setTitle', '学习');
-    const info = await axiosPlus.axios.get('learn/info', { params: { id: params.id } });
+    const info = await axiosPlus.axios.get(`learn/${params.id}`);
     return {
       info: info.data.data,
     };
