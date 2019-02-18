@@ -18,6 +18,11 @@
         <commentItem v-for="(item,index) in comment" :key="index" :name="item.name" :time="item.time" :content="item.content"></commentItem>
       </div>
     </div>
+
+    <div class="article-likes" @click="like()">
+      <div :class="['article-likes-icon', {active: isLike}]"></div>
+      <div class="article-likes-num">{{info.likes}}</div>
+    </div>
   </div>
 </template>
 <style scoped>
@@ -93,6 +98,31 @@
     line-height: 30px;
     margin-bottom: 8px;
   }
+
+  .article-likes {
+    position: fixed;
+    right: 20px;
+    bottom: 100px;
+  }
+
+  .article-likes-icon {
+    width: 36px;
+    height: 36px;
+    background: url('../../../../assets/img/like_icon.png') no-repeat;
+    background-size: contain;
+  }
+
+  .article-likes-icon.active {
+    background: url('../../../../assets/img/like_icon_active.png') no-repeat;
+    background-size: contain;
+  }
+
+  .article-likes-num {
+    font-size: 14px;
+    text-align: center;
+    line-height: 16px;
+    color: #444;
+  }
 </style>
 <script>
 import axiosPlus from '@/plugins/axios';
@@ -122,7 +152,14 @@ export default {
       showCommentWrite: false,
       name: '',
       content: '',
+      isLike: false,
     };
+  },
+  mounted() {
+    const likesArray = localStorage.BLOGLIKES ? JSON.parse(localStorage.BLOGLIKES) : [];
+    if (likesArray.includes(this.$route.params.id)) {
+      this.isLike = true;
+    }
   },
   methods: {
     send() {
@@ -150,6 +187,20 @@ export default {
       }).then(res => {
         this.comment = res.data.data;
       });
+    },
+    like() { // 点赞
+      if (this.isLike) {
+        this.$toast('点完赞还想取消？');
+        return;
+      }
+      axiosPlus.axios.post(`article/${this.$route.params.id}/like`)
+        .then(() => {
+          this.info.likes++;
+          this.isLike = true;
+          const likesArray = localStorage.BLOGLIKES ? JSON.parse(localStorage.BLOGLIKES) : [];
+          likesArray.push(this.$route.params.id);
+          localStorage.setItem('BLOGLIKES', JSON.stringify(likesArray));
+        });
     },
   },
   components: {
