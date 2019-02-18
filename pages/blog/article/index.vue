@@ -21,13 +21,14 @@
                 <div class="article-item-time">{{item.time | time}}</div>
               </div>
               <div class="article-item-right">
-                <div class="article-item-tag" :style="{backgroundColor:item.tag.color}">{{item.tag.title}}</div>
+                <div class="article-item-tag" v-if="item.tag" :style="{backgroundColor:item.tag.color}">{{item.tag.title}}</div>
                 <div class="article-item-tag" style="background-color:#ffd700;" v-if="item.top > 0">置顶</div>
               </div>
             </div>
             <div class="article-item-intro">{{item.intro}}</div>
             <div class="article-item-bot">
               <div class="article-item-watch">{{item.watch}}</div>
+              <div class="article-item-like">{{item.likes}}</div>
             </div>
           </nuxt-link>
         </div>
@@ -104,6 +105,16 @@
     line-height: 20px;
     margin-top: 4px;
     background: url('../../../assets/img/watch.png') no-repeat left center;
+  }
+
+  .article-item-like {
+    font-size: 12px;
+    color: #666;
+    padding-left: 20px;
+    line-height: 20px;
+    margin-top: 4px;
+    margin-left: 10px;
+    background: url('../../../assets/img/like.png') no-repeat left center;
   }
 </style>
 
