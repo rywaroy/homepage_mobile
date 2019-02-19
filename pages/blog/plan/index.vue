@@ -11,8 +11,8 @@
 </template>
 
 <script>
-import VePie from 'v-charts/lib/pie.common';
-import VeBar from 'v-charts/lib/bar.common';
+// import VePie from 'v-charts/lib/pie.common';
+// import VeBar from 'v-charts/lib/bar.common';
 import axiosPlugin from '@/plugins/axios';
 
 export default {
@@ -51,8 +51,8 @@ export default {
     },
   },
   components: {
-    VePie,
-    VeBar,
+    VePie: () => import('v-charts/lib/pie.common'),
+    VeBar: () => import('v-charts/lib/bar.common'),
   },
 };
 </script>
